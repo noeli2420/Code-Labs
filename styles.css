@@ -1,0 +1,25 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type:none;
+}
+.full-nav, .nav-list {
+    display: flex;
+}
+.full-nav {
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1280px;
+    color:black;
+
+  }
+  .nav-list li {
+        margin: 1rem;
+
+  }
+  .nav-list li {
+    margin: 1rem;
+
+}
