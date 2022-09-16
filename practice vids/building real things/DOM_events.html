@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started with JavaScript</title>
+    
+    <link rel ="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <style>
+        body { padding: 30px;}
+    </style>
+
+</head>
+<body>
+    <!--option 1 -->
+    <div class="'jumbotron text-center">
+        <button class="btn btn-danger" onclick="goCooCoo()">
+            Go CooCoo</button>
+    </div>
+
+     <!--option 2 -->
+     <div class="'jumbotron text-center">
+        <button class="btn btn-danger coffee-btn" onclick="goCooCoo">
+          Get Coffee</button>
+          <button class="btn btn-danger coffee-btn" onclick="goCooCoo">
+            Get Coffee</button>
+            <button class="btn btn-danger coffee-btn" onclick="goCooCoo">
+                Get Coffee</button>
+    </div>
+    
+    <!--start javascript-->
+    <script> 
+    //1 grab elements from the dom
+    //2 attach event listeners
+
+   function goCooCoo(){
+    document.body.style.backgroundColor = '#C00C00';
+}
+//optioni2
+    const coffeeButton = document.querySelectorAll('.coffee-btn');
+//     coffeeButton.onclick = function (){
+//     document.body.style.backgroundColor = '#C0FFEE';
+// }
+// coffeeButton.onmouseenter = goCooCoo;
+coffeeButtons.forEach(function(button) {
+    button.onclick = goCoocoo; 
+});
+    </script>
+</body>
+</html>
