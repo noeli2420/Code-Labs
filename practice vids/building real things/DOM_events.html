@@ -28,6 +28,13 @@
             <button class="btn btn-danger coffee-btn" onclick="goCooCoo">
                 Get Coffee</button>
     </div>
+
+ 
+     <!--option 3 -->
+      <div class="'jumbotron text-center">
+        <button class="btn btn-primary">
+        Not Listening </button>
+          </div>
     
     <!--start javascript-->
     <script> 
@@ -43,9 +50,27 @@
 //     document.body.style.backgroundColor = '#C0FFEE';
 // }
 // coffeeButton.onmouseenter = goCooCoo;
+
+
+function getCoffee() {
+    document.body.style.backgroundColor = '#C0FFEE';
+}
 coffeeButtons.forEach(function(button) {
-    button.onclick = goCoocoo; 
+    button.onclick = getCoffee; 
 });
-    </script>
+
+// option 3 
+const lalaButton = document.querySelector('.lala-btn');
+
+function notListening() {
+    document.body.style.backgroundColor = '#1A1A1A';
+}
+    lalaButton.addEventListener('click', notListening);
+    lalaButton.addEventListener('mouseenter', goCoocoo);
+    
+    const buttons = document.querySelectorAll('button');
+    button.forEach(button => button.addEventListener('mouseleave',notListening));
+   
+   </script>
 </body>
 </html>

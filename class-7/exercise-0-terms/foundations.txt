@@ -1,0 +1,6 @@
+What is DOM
+    DOM stands for Document Object Model. 
+    It helps define a documents logical structure in order to make certain elements
+
+What are event listeners
+    an interface for object that is able to dispatch even methods an Event Methid
