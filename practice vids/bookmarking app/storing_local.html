@@ -149,25 +149,58 @@
 
  //=====================================
 
-   const bookmarksList = document.querySelector('.bookmarks-list');
-   const bookmarkForm = document.querySelector('.bookmark-form');
+
+
+   const bookmarksList   = document.querySelector('.bookmarks-list');
+   const bookmarkForm    = document.querySelector('.bookmark-form');
    const bookmarkInput = bookmarkForm.querySelector('.input[type=text]');
+   const bookmarks     = JSON.parselocalStorage.getItem('bookmarks') || []; 
+
+   fillBookmarksList(bookmarks);
 
    function createBookmark(e) { 
     e.preventDefault();
 
-
+    // ad bookmarks 
     const title          = bookmarkInput.value; 
-    const bookmark       = document.createElement('a');
-    bookmark.className   = 'bookmark'; 
-    bookmark.innerText   = title; 
-    bookmark.href        = '#'; 
-    bookmark.target      = '_blank';
-    console.log(bookmark); 
-    bookmarksList.appenChild(bookmark);
-    console.log('processing the form ');
+    const bookmark       = { 
+        title: title 
+    };
+    bookmarks.push(bookmarks); 
+    fillBookmarksList(bookmarks); 
+    storeBookmarks(bookmarks);
 
     bookmarkForm.rest();
+    console.table(bookmarks); 
+
+    // const title          = bookmarkInput.value; 
+    // const bookmark       = document.createElement('a');
+    // bookmark.className   = 'bookmark'; 
+    // bookmark.innerText   = title; 
+    // bookmark.href        = '#'; 
+    // bookmark.target      = '_blank';
+    // bookmarksList.appenChild(bookmark);
+
+   }
+
+   function fillBookmarksList(bookmarks = []){ 
+    const bookmarksHtml = bookmarks.map((bookmark) => { 
+        return 
+        <a href="#" class="bookmark"> 
+            ${bookmarks.title}
+            </a> 
+            ''; 
+    }); join(''); 
+    bookmarksList.innerHTML = bookmarksHTML; 
+    
+    // let bookmarksHtml = ''; 
+    // for(let i = 0; i  < bookmarks.length; i++) { 
+    //     bookmarksHtml += 
+
+   }
+
+   function storeBookmarks(bookmarks = []) { 
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); 
    }
 
    bookmarkForm.addEventListener('submit', createBookmark);

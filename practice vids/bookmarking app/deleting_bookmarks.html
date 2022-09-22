@@ -83,8 +83,9 @@
             }
 
             .bookmark { 
-                display: block; 
+                display: flex; 
                 background: #FFF;
+                position: relative; 
                 color: #999;
                 padding: 20px; 
                 transition: 0.3s ease all;
@@ -106,6 +107,34 @@
                 border-bottom: 0; 
             }
 
+            .bookmark .img { 
+                background-color: #DDD; 
+                border-radius: 3px; 
+                background-image: url  ('https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9jdXN8ZW58MHx8MHx8&w=1000&q=800');
+                background-size: cover; 
+                width: 80px; 
+                height: 60px; 
+                margin-right: 20px; 
+            }
+
+            .bookmark .title { 
+                display: flex; 
+                align-items: center; 
+
+            }
+            .bookmark .glyphicon-remove { 
+                position: absolute; 
+                top: 10px; 
+                right: 10px;
+                color: #eee;
+                font-size: 12px;
+                transition: 0.3s ease color; 
+                cursor: pointer;
+   
+            }
+            .bookmark.hover .glyphicon.remove { 
+                color: #aaa;
+            }
     </style>
 
 </head>
@@ -149,32 +178,73 @@
 
  //=====================================
 
-   const bookmarksList = document.querySelector('.bookmarks-list');
-   const bookmarkForm = document.querySelector('.bookmark-form');
+
+
+   const bookmarksList   = document.querySelector('.bookmarks-list');
+   const bookmarkForm    = document.querySelector('.bookmark-form');
    const bookmarkInput = bookmarkForm.querySelector('.input[type=text]');
+   const bookmarks     = JSON.parselocalStorage.getItem('bookmarks') || []; 
+
+   fillBookmarksList(bookmarks);
 
    function createBookmark(e) { 
     e.preventDefault();
 
-
+    // ad bookmarks 
     const title          = bookmarkInput.value; 
-    const bookmark       = document.createElement('a');
-    bookmark.className   = 'bookmark'; 
-    bookmark.innerText   = title; 
-    bookmark.href        = '#'; 
-    bookmark.target      = '_blank';
-    console.log(bookmark); 
-    bookmarksList.appenChild(bookmark);
-    console.log('processing the form ');
+    const bookmark       = { 
+        title: title 
+    };
+    bookmarks.push(bookmarks); 
+    fillBookmarksList(bookmarks); 
+    storeBookmarks(bookmarks);
 
     bookmarkForm.rest();
+    console.table(bookmarks); 
+
+    // const title          = bookmarkInput.value; 
+    // const bookmark       = document.createElement('a');
+    // bookmark.className   = 'bookmark'; 
+    // bookmark.innerText   = title; 
+    // bookmark.href        = '#'; 
+    // bookmark.target      = '_blank';
+    // bookmarksList.appenChild(bookmark);
+
+   }
+
+   function fillBookmarksList(bookmarks = []){ 
+    const bookmarksHtml = bookmarks.map((bookmark) => { 
+        return `
+        
+        <a href="#" class="bookmark" data-id="${1}"> 
+            <div class="img"> </div> 
+            <div class= "title"> ${bookmarks.title}</div> 
+            <span.glyphicon glyphicon-remove> </span> 
+            
+            </a> 
+            `; 
+    }); join(''); 
+    bookmarksList.innerHTML = bookmarksHTML; 
+   }
+
+   function removeBookmark(e) {
+    if (e.target.matches('.gylphicon-remove')) return;
+
+    const index = e.target.parentNode.dataset.id;
+    bookmarks.splice(index, 1); 
+    fillBookmarksList(bookmarks); 
+    storeBookmarks(bookmarks); 
+
+   }
+   
+
+   function storeBookmarks(bookmarks = []) { 
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); 
    }
 
    bookmarkForm.addEventListener('submit', createBookmark);
+   bookmarksList.addEventListener('click', removeBookmark); 
    
-
-
-
    </script>
 </body>
 </html>
