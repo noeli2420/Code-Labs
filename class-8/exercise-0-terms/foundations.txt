@@ -1,0 +1,8 @@
+
+1. What is Local Storage? 
+    This is a web storage that can be found in the browser. 
+
+2. What is an API 
+    A software that allows two applications to talk to each other 
+
+    
