@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+body  .div { 
+    color:#ff0000; 
+    padding:5cm; 
+    height:  200px;
+    width:  200px;
+    
+ }
+
+</style>
+<body>
+    <h1> Demo </h1>
+    <button onclick="addSquareEverySecond()">Add Red Square </button>
+    <div id ="container">
+
+    </div>
+    <script>
+  function addRedSquare() {
+    let containerElement =  document.getElementById("container");
+
+    //step 1 create element
+    let redSquareElement =  document.createElement("div");
+    
+
+    //step 2 style the element
+    redSquareElement.style.backgroundColor = "red";
+    redSquareElement.style.width = "200px";
+    redSquareElement.style.height = "200px";
+    redSquareElement.style.marginBottom = '10px';
+    console.log(redSquareElement)
+
+    // step 3 add element to our container
+    containerElement.appendChild(redSquareElement)
+
+
+
+}
+function addSquareEverySecond()  {
+    setInterval(addRedSquare, 1000)
+}
+</script> 
+    
+    </body>
+    </html>
+    
