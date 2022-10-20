@@ -1,0 +1,18 @@
+
+
+  <div class = "container">
+   <h1> {{title}}</h1>
+  </div>
+  <div>
+  <!---Two Way Data Binding--->
+  <input type="text" [(ngModel)="title"]/>
+</div>
+<!--
+<div style ="background-color: red",
+width:200px; height:200px>red </div> -->
+
+<div>
+  <button (click)="onToggleButton()"> Change Title </button>
+</div>
+
+<div> *ngFor="let item of users"</div>
