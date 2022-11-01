@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn success">
+      Patterns for Clothes  </button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <a href="#" class="list-group-item clearfix" *ngFor="let top of tops ">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading"> {{top.name}} </h4>
+      <p class="list-group-item-text"> {{top.description}} </p>
+    </div>
+    <span class="pull-right">
+      <img
+      [src] = "top.imagePath"
+       alt="{{ top.name }}"
+       class="img-responsive"
+       style="max-height: 50px;">
+    </span>
+  </a>
+    <app-halter-pattern></app-halter-pattern>
+  </div>
+</div>
+
